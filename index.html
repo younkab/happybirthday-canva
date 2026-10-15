@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7057ff">
+  <title>Happy Birthday Emma & Daniel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--purple:#7257ff;--pink:#ff5f9e;--yellow:#ffd95a;--blue:#53c8ff;--ink:#2b2750;--white:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{min-height:100vh;overflow-x:hidden;font-family:Fredoka,system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#63cfff 0%,#9bddff 30%,#ffd0e4 72%,#fff1bf 100%)}
+    .scene{position:relative;min-height:100vh;isolation:isolate;overflow:hidden}
+    .sky-glow{position:absolute;inset:-20% -10% auto;height:65vh;background:radial-gradient(circle at 50% 25%,rgba(255,255,255,.95),rgba(255,255,255,0) 55%);z-index:-4}
+    .cloud{position:absolute;width:180px;height:52px;border-radius:999px;background:rgba(255,255,255,.88);box-shadow:0 12px 28px rgba(47,100,150,.12);z-index:-3;animation:drift 18s ease-in-out infinite alternate}
+    .cloud::before,.cloud::after{content:"";position:absolute;border-radius:50%;background:inherit}
+    .cloud::before{width:78px;height:78px;left:25px;top:-38px}.cloud::after{width:96px;height:96px;right:22px;top:-48px}
+    .cloud.one{top:12%;left:-40px}.cloud.two{top:20%;right:-55px;transform:scale(.85);animation-delay:-7s}.cloud.three{top:42%;left:8%;transform:scale(.55);opacity:.68;animation-delay:-12s}
+    @keyframes drift{to{translate:45px 8px}}
+    header{position:relative;z-index:4;text-align:center;padding:72px 20px 22px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:2px solid rgba(255,255,255,.72);border-radius:999px;background:rgba(255,255,255,.2);color:#fff;font-weight:700;backdrop-filter:blur(8px);box-shadow:0 8px 22px rgba(44,64,140,.12)}
+    h1{margin:20px auto 12px;max-width:1000px;color:#fff;font-size:clamp(3rem,9vw,7.5rem);line-height:.9;letter-spacing:-.055em;text-shadow:0 5px 0 #f55594,0 12px 28px rgba(52,32,112,.24)}
+    header p{color:#fff;font-size:clamp(1.05rem,2.4vw,1.45rem);font-weight:600;text-shadow:0 2px 10px rgba(30,50,100,.22)}
+    .cake{font-size:clamp(72px,12vw,132px);filter:drop-shadow(0 16px 14px rgba(81,46,128,.2));animation:bob 2.8s ease-in-out infinite}
+    @keyframes bob{50%{transform:translateY(-11px) rotate(2deg)}}
+    .gallery{position:relative;z-index:5;display:grid;grid-template-columns:repeat(2,minmax(0,350px));justify-content:center;gap:34px;padding:38px 22px 20px}
+    .card{position:relative;padding:15px 15px 24px;border:3px solid rgba(255,255,255,.82);border-radius:36px;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(255,255,255,.78));box-shadow:0 24px 55px rgba(73,50,131,.2),inset 0 1px 0 #fff;transform:rotate(-1.5deg);transition:transform .25s ease,box-shadow .25s ease;backdrop-filter:blur(10px)}
+    .card:nth-child(2){transform:rotate(1.5deg)}.card:hover{transform:translateY(-10px) rotate(0);box-shadow:0 32px 65px rgba(73,50,131,.28)}
+    .photo{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:25px;background:#eee}
+    .photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}.card:hover img{transform:scale(1.04)}
+    .sparkle{position:absolute;right:14px;top:12px;font-size:34px;filter:drop-shadow(0 4px 7px rgba(0,0,0,.16))}
+    .name{margin-top:17px;color:var(--purple);font-size:clamp(1.65rem,4vw,2.15rem);font-weight:700}
+    .wish{margin:8px auto 0;max-width:290px;color:#615d78;font-size:1rem;line-height:1.55}
+    .controls{position:relative;z-index:7;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:26px 20px 10px}
+    button{border:0;border-radius:999px;padding:15px 23px;color:#fff;font:700 1rem Fredoka,sans-serif;cursor:pointer;box-shadow:0 12px 25px rgba(70,42,130,.22);transition:transform .2s ease,filter .2s ease}
+    button:hover{transform:translateY(-3px);filter:brightness(1.05)}button:focus-visible{outline:4px solid rgba(255,255,255,.85);outline-offset:3px}
+    #musicBtn{background:linear-gradient(135deg,var(--pink),#ff7b65)}#burstBtn{background:linear-gradient(135deg,var(--purple),#4b9eff)}
+    .message{position:relative;z-index:4;max-width:850px;margin:34px auto 70px;padding:30px 28px;border:3px solid rgba(255,255,255,.8);border-radius:32px;background:rgba(255,255,255,.82);box-shadow:0 22px 50px rgba(78,55,129,.16);font-size:clamp(1.06rem,2.5vw,1.35rem);line-height:1.75;backdrop-filter:blur(12px)}
+    .message strong{color:var(--pink)}
+    footer{position:relative;z-index:4;padding:25px;text-align:center;color:#fff;font-weight:600;text-shadow:0 2px 8px rgba(20,40,100,.18)}
+    .balloon{position:fixed;bottom:-170px;width:52px;height:65px;border-radius:50% 50% 46% 46%;opacity:.88;z-index:2;pointer-events:none;filter:drop-shadow(0 8px 6px rgba(0,0,0,.12));animation:floatUp linear infinite}
+    .balloon::before{content:"";position:absolute;left:50%;bottom:-7px;border-left:6px solid transparent;border-right:6px solid transparent;border-top:10px solid currentColor;transform:translateX(-50%)}
+    .balloon::after{content:"";position:absolute;left:50%;top:100%;width:1px;height:82px;background:rgba(255,255,255,.75)}
+    @keyframes floatUp{to{transform:translate3d(var(--sway),-130vh,0) rotate(8deg)}}
+    #confettiLayer{position:fixed;inset:0;z-index:8;pointer-events:none;overflow:hidden}
+    .confetti{position:absolute;top:-24px;width:10px;height:18px;border-radius:2px;animation:fall linear forwards}
+    @keyframes fall{to{transform:translate3d(var(--drift),115vh,0) rotate(900deg)}}
+    @media(max-width:760px){header{padding-top:52px}.gallery{grid-template-columns:minmax(0,390px);gap:26px}.card,.card:nth-child(2){transform:none}.message{margin:28px 16px 48px;padding:23px 19px}.cloud{opacity:.62}.cake{font-size:84px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.balloon,#confettiLayer{display:none}.card:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <main class="scene">
+    <div class="sky-glow"></div><div class="cloud one"></div><div class="cloud two"></div><div class="cloud three"></div>
+    <header>
+      <div class="badge">✨ A Magical Birthday Celebration ✨</div>
+      <div class="cake" aria-hidden="true">🎂</div>
+      <h1>Happy Birthday!</h1>
+      <p>Celebrating two wonderful people, Emma &amp; Daniel</p>
+    </header>
+
+    <section class="gallery" aria-label="Birthday celebration portraits">
+      <article class="card">
+        <div class="photo"><img src="emma.png" alt="Portrait for Emma Johnson"><span class="sparkle" aria-hidden="true">✨</span></div>
+        <h2 class="name">Emma Johnson</h2>
+        <p class="wish">May your special day sparkle with joy, laughter, beautiful memories, and countless blessings.</p>
+      </article>
+      <article class="card">
+        <div class="photo"><img src="daniel.png" alt="Portrait for Daniel Smith"><span class="sparkle" aria-hidden="true">🎉</span></div>
+        <h2 class="name">Daniel Smith</h2>
+        <p class="wish">Wishing you an amazing celebration, exciting adventures, great opportunities, and a fantastic year ahead.</p>
+      </article>
+    </section>
+
+    <div class="controls">
+      <button id="musicBtn" type="button">🎵 Play Celebration Music</button>
+      <button id="burstBtn" type="button">🎊 More Confetti</button>
+    </div>
+
+    <section class="message">
+      May this new year of life be filled with <strong>joy, friendship, faith, adventure, and wonderful surprises</strong>.<br>
+      Happy Birthday, Emma and Daniel! 🎁🎈
+    </section>
+
+    <footer>Made with ❤️ for Emma &amp; Daniel</footer>
+  </main>
+  <div id="confettiLayer" aria-hidden="true"></div>
+
+  <script>
+    const colors=['#ff4d6d','#4dabf7','#51cf66','#ffd43b','#cc5de8','#ff922b'];
+    for(let i=0;i<18;i++){
+      const b=document.createElement('div');
+      b.className='balloon';
+      const size=34+Math.random()*38;
+      const color=colors[Math.floor(Math.random()*colors.length)];
+      b.style.width=size+'px'; b.style.height=size*1.22+'px'; b.style.left=Math.random()*100+'vw';
+      b.style.background=color; b.style.color=color; b.style.setProperty('--sway',(Math.random()*160-80)+'px');
+      b.style.animationDuration=(10+Math.random()*9)+'s'; b.style.animationDelay=(-Math.random()*18)+'s';
+      document.body.appendChild(b);
+    }
+
+    const layer=document.getElementById('confettiLayer');
+    function confettiBurst(count=120){
+      for(let i=0;i<count;i++){
+        const c=document.createElement('i'); c.className='confetti';
+        c.style.left=Math.random()*100+'vw'; c.style.background=colors[Math.floor(Math.random()*colors.length)];
+        c.style.setProperty('--drift',(Math.random()*260-130)+'px');
+        c.style.animationDuration=(3.3+Math.random()*3.7)+'s'; c.style.animationDelay=(Math.random()*.7)+'s';
+        c.style.transform='rotate('+Math.random()*360+'deg)';
+        layer.appendChild(c); setTimeout(()=>c.remove(),7600);
+      }
+    }
+    confettiBurst(150);
+    document.getElementById('burstBtn').addEventListener('click',()=>confettiBurst(180));
+
+    let audioCtx=null,playing=false,timer=null,step=0;
+    const notes=[523.25,659.25,783.99,659.25,698.46,880,783.99,659.25,587.33,698.46,783.99,523.25];
+    function playNote(freq,when){
+      const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();
+      osc.type='triangle'; osc.frequency.setValueAtTime(freq,when);
+      gain.gain.setValueAtTime(.0001,when); gain.gain.exponentialRampToValueAtTime(.12,when+.025); gain.gain.exponentialRampToValueAtTime(.0001,when+.28);
+      osc.connect(gain).connect(audioCtx.destination); osc.start(when); osc.stop(when+.3);
+    }
+    function schedule(){ if(!playing)return; playNote(notes[step%notes.length],audioCtx.currentTime); step++; timer=setTimeout(schedule,330); }
+    const musicBtn=document.getElementById('musicBtn');
+    musicBtn.addEventListener('click',()=>{
+      if(!audioCtx) audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+      if(audioCtx.state==='suspended') audioCtx.resume();
+      playing=!playing;
+      if(playing){musicBtn.textContent='⏸ Pause Celebration Music';schedule();confettiBurst(90)}
+      else{musicBtn.textContent='🎵 Play Celebration Music';clearTimeout(timer)}
+    });
+  </script>
+</body>
+</html>
